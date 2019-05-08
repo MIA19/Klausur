@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+</h:head>
+<h:body>
+	<h:form>
+		<h:inputText id="room" value="#{listBean.neuerRaum}" required="true">
+			<f:converter converterId="RaumConverter"/>
+			<f:validator validatorId="RaumValidator" />
+		</h:inputText>
+		<h:commandButton type="submit" action="#{listBean.submit}" />
+	</h:form>
+
+	<h:dataTable value="#{listBean.raumliste}" var="raum">
+		<h:column>
+			<h:outputText value="#{raum.gebäude}" />
+			<h:outputText value="#{raum.nummer}" />
+		</h:column>
+	</h:dataTable>
+</h:body>
+</html>
